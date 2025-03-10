@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Office List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Post Office List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Office Name</th>
+                <th>Pincode</th>
+                <th>District</th>
+                <th>State</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post_office in post_offices %}
+            <tr>
+                <td>{{ post_office.officename }}</td>
+                <td>{{ post_office.pincode }}</td>
+                <td>{{ post_office.district }}</td>
+                <td>{{ post_office.statename }}</td>
+                <td>{{ post_office.latitude|default:"N/A" }}</td>
+                <td>{{ post_office.longitude|default:"N/A" }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No post offices found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

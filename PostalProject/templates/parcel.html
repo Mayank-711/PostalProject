@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcel Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .details {
+            border: 1px solid #ddd;
+            padding: 15px;
+            width: 50%;
+            background-color: #f9f9f9;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Parcel Details</h2>
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+    {% if recipient_name %}
+        <div class="details">
+            <p><strong>Name:</strong> {{ recipient_name }}</p>
+            <p><strong>Address:</strong> {{ recipient_address }}</p>
+            <p><strong>Pincode:</strong> {{ recipient_pincode }}</p>
+            <p><strong>Post Office:</strong> {{ office_name }}</p>
+        </div>
+    {% else %}
+        <p class="error">Address verification failed. Please check the details.</p>
+    {% endif %}
+    
+   
+
+
+</body>
+</html>

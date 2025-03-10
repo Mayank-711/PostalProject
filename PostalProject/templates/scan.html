@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Mail</title>
+    <link rel="stylesheet" href="{% static 'css/scan.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'scanpage' %}">Scan</a></li>
+                <li><a href="{% url 'postoffice' %}">PostOffice</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Scan Mail</h1>
+        <p>Upload an image of the mail or manually enter the address details for identification.</p>
+        <form action="{% url 'scanpage' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+        
+    </main>
+</body>
+</html>

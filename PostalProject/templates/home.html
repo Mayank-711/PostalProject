@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Delivery System</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'scanpage' %}">Scan</a></li>
+                <li><a href="{% url 'postoffice' %}">Postoffice</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>AI-Powered Delivery Post Office Identification System</h1>
+        <p>Welcome to our AI-based solution for efficient and accurate postal delivery!</p>
+        <button onclick="location.href='{% url 'scanpage' %}'">Get Started</button>
+    </main>
+</body>
+</html>
